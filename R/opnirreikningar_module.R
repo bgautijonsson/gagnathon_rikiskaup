@@ -1,10 +1,25 @@
 opnirreikningar_navpanel <- nav_panel(
   title = "Opnir Reikningar",
-  card(
+  navset_card_tab(
     full_screen = TRUE,
-    layout_sidebar(
-      sidebar = sidebar("Sidebar"),
-      "Content"
+    nav_panel(
+      "Kaupandi", 
+      "Upplýsingar frá sjónarhorni kaupenda",
+      plotOutput("random_plot")
+    ),
+    nav_panel(
+      "Birgir", 
+      "Upplýsingar frá sjónarhorni birgja"
     )
+  )
+)
+
+
+opnirreikningar_sidebar <- list(
+  "Stillingar",
+  selectInput(
+    "kaupandi",
+    "Kaupandi",
+    kaupendur
   )
 )
